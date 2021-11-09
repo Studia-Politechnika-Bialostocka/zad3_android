@@ -37,5 +37,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
-
+    implementation 'androidx.recyclerview:recyclerview:1.0.0-beta01'
 }
