@@ -39,7 +39,7 @@ public class TaskFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                task.setName(s.toString());
             }
 
             @Override
@@ -47,10 +47,11 @@ public class TaskFragment extends Fragment {
 
             }
         });
+        dateButton = view.findViewById(R.id.task_date);
 
         dateButton.setText(task.getDate().toString());
         dateButton.setEnabled(false);
-
+        doneCheckBox = view.findViewById(R.id.task_done);
         doneCheckBox.setChecked(task.isDone());
         doneCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
             task.setDone(isChecked);

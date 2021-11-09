@@ -10,6 +10,15 @@ public class TaskStorage {
 
     public static TaskStorage getInstance() { return taskStorage; }
 
+
+    public List<Task> getTasks(){
+        return tasks;
+    }
+
+//    public Task getTask(Task task) {
+//        return tasks[0]
+//    }
+
     private TaskStorage() {
         tasks = new ArrayList<>();
         for (int i = 1; i <= 100; i++){
