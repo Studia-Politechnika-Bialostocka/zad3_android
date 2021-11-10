@@ -14,6 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 public class TaskListFragment extends Fragment {
     public RecyclerView recyclerView;
 
+    private class TaskHolder extends RecyclerView.ViewHolder {
+
+        public TaskHolder(LayoutInflater inflater, ViewGroup parent) {
+            super(inflater.inflate(R.layout.list_item_task, parent, false));
+        }
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
