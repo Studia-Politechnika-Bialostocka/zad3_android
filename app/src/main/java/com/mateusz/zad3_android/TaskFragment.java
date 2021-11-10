@@ -14,7 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.UUID;
+
 public class TaskFragment extends Fragment {
+    private static final String ARG_TASK_ID = "arg_task_id";
     private Task task;
     private Button dateButton;
     private CheckBox doneCheckBox;
@@ -22,7 +25,16 @@ public class TaskFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        task = new Task();
+        UUID taskId = (UUID) getArguments().getSerializable(ARG_TASK_ID);
+        task = TaskStorage.getInstance().getTask(taskId);
+    }
+
+    public static TaskFragment newInstance(UUID taskId) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(ARG_TASK_ID, taskId);
+        TaskFragment taskFragment = new TaskFragment();
+        taskFragment.setArguments(bundle);
+        return taskFragment;
     }
 
     @Nullable
@@ -47,6 +59,7 @@ public class TaskFragment extends Fragment {
 
             }
         });
+        nameField.setText(task.getName());
         dateButton = view.findViewById(R.id.task_date);
 
         dateButton.setText(task.getDate().toString());
@@ -60,4 +73,6 @@ public class TaskFragment extends Fragment {
 
         return view;
     }
+
+
 }

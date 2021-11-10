@@ -15,7 +15,6 @@ public class TaskListActivity extends SingleFragmentActivity {
 
     @Override
     protected Fragment createFragment() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        return fragmentManager.findFragmentById(R.id.fragment_container);
+        return new TaskListFragment();
     }
 }

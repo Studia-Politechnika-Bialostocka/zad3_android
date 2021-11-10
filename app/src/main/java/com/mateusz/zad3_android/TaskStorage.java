@@ -2,6 +2,7 @@ package com.mateusz.zad3_android;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class TaskStorage {
     private static final TaskStorage taskStorage = new TaskStorage();
@@ -15,9 +16,13 @@ public class TaskStorage {
         return tasks;
     }
 
-//    public Task getTask(Task task) {
-//        return tasks[0]
-//    }
+    public Task getTask(UUID id) {
+        for(Task t: tasks) {
+            if (t.getId().equals(id))
+                return t;
+        }
+        return null;
+    }
 
     private TaskStorage() {
         tasks = new ArrayList<>();
